@@ -29,7 +29,7 @@ function ProductsList() {
     loading,
   } = useContext(ProductContext);
 
-  const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState(search);
   const debouncedSearch = useDebounce(searchTerm, 500);
 
