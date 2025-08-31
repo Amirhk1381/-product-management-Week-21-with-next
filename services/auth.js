@@ -30,4 +30,4 @@ export const editProduct = (id, formData) => {
 };
 
 export { registerUser };
-export default loginUser;
+

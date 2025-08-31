@@ -1,12 +1,14 @@
-// import { Link, useNavigate } from "react-router-dom";
+
 import styles from "../styles/Login.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import loginUser from "../services/auth";
+
+import { loginUser } from "../services/auth";
+
+
 import { setCookie, removeCookie } from "../services/cookie.js";
 
-// import { loginUser } from "../services/auth.js";
 
 function login() {
   const [login, setLogin] = useState({ username: "", password: "" });
