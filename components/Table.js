@@ -1,15 +1,14 @@
 import styles from "../styles/Table.module.css";
 import { useContext } from "react";
-import { getProducts } from "../services/auth";
-
 import { deleteProduct, editProduct } from "../services/auth";
 import DeleteProduct from "./DeleteProduct";
 import { getCookie } from "../services/cookie";
 import { ProductContext } from "../context/ProductsProvider";
-import { get, set } from "react-hook-form";
 import EditProduct from "./EditProduct";
+import { useRouter } from "next/router";
 
 function Table() {
+  const router = useRouter()
   const {
     products,
     setProducts,
@@ -21,12 +20,12 @@ function Table() {
     page,
     setPage,
     search,
-    setSearchParams,
   } = useContext(ProductContext);
 
   const handleDeleteProduct = async (productId) => {
     if (getCookie("token") === null) {
       alert("لطفا وارد حساب کاربری خود شوید.");
+      router.push("/login")
       return;
     }
 
@@ -37,7 +36,7 @@ function Table() {
       if (products.length === 1 && page > 1) {
         const newPage = page - 1;
         setPage(newPage);
-        setSearchParams({ page: newPage.toString() });
+        
         // await fetchProducts();
       }
       await fetchProducts();
@@ -50,6 +49,7 @@ function Table() {
   const handleEditProduct = async (productId, editedProduct) => {
     if (getCookie("token") === null) {
       alert("لطفا وارد حساب کاربری خود شوید.");
+      router.push("/login")
       return;
     }
     try {

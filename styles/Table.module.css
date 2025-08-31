@@ -21,11 +21,17 @@
   border-radius: 30px;
 }
 
-.header tr {
+/* .header tr {
   width: 1140px;
   height: 70px;
   background: rgba(242, 242, 242, 1);
+} */
+.header th {
+  height: 70px; 
+  
+  background: rgba(242, 242, 242, 1);
 }
+
 .header tr th {
   font-weight: 500;
   font-style: Medium;

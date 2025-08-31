@@ -1,16 +1,11 @@
 import { set, useForm } from "react-hook-form";
-import { createPortal } from "react-dom";
-import { useState } from "react";
 import { useContext } from "react";
-import { createProduct, getProducts } from "../services/auth";
-import { getCookie } from "../services/cookie";
-// import { useNavigate } from "react-router-dom";
-// import { useSearchParams } from "react-router-dom";
 import { ProductContext } from "../context/ProductsProvider";
-
 import styles from "../styles/AddProduct.module.css";
+import { useRouter } from "next/router";
 
 function AddProduct({ onConfirm, onCancel }) {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -21,9 +16,9 @@ function AddProduct({ onConfirm, onCancel }) {
   });
   const { products, setProducts, fetchProducts, page, setPage } =
     useContext(ProductContext);
-  const navigate = useNavigate();
+
   const close = () => {
-    navigate("/products");
+    router.push("/");
     reset();
   };
 

@@ -3,11 +3,9 @@ import styles from "../styles/Login.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
 import { loginUser } from "../services/auth";
-
-
 import { setCookie, removeCookie } from "../services/cookie.js";
+
 
 
 function login() {
@@ -31,7 +29,7 @@ function login() {
       setCookie("token", token, 3600);
 
       localStorage.setItem("username", login.username);
-      router.push("/products");
+      router.push("/");
     } catch (error) {
       // console.error(error);
       if (error.response && error.response.status === 400) {
