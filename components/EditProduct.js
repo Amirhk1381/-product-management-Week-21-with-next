@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import styles from "../styles/EditProduct.module.css";
-import { editProduct } from "../services/auth";
 import { useEffect } from "react";
 
 function EditProduct({ product, onCancel, onConfirm }) {
